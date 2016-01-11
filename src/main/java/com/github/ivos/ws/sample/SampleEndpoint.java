@@ -1,4 +1,4 @@
-package com.github.ivos.ws;
+package com.github.ivos.ws.sample;
 
 import com.mycompany.hr.schemas.HolidayRequest;
 import com.mycompany.hr.schemas.HolidayResponse;

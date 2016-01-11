@@ -1,4 +1,4 @@
-package com.github.ivos.ws.it;
+package com.github.ivos.ws.it.util;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;

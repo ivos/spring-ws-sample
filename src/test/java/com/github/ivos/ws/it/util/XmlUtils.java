@@ -1,4 +1,4 @@
-package com.github.ivos.ws.it;
+package com.github.ivos.ws.it.util;
 
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import com.sun.org.apache.xml.internal.serialize.XMLSerializer;
