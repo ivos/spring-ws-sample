@@ -86,14 +86,9 @@
 			<plugins>
 
 				<plugin>
-					<!-- Run in embedded tomcat by executing: -->
-					<!-- mvn clean process-test-classes tomcat7:run -->
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
-					<configuration>
-
-					</configuration>
 				</plugin>
 
 				<plugin>
