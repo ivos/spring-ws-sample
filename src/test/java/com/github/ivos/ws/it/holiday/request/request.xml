@@ -1,4 +1,4 @@
-<HolidayRequest xmlns="http://mycompany.com/hr/schemas">
+<HolidayRequest xmlns="http://ivos.github.com/hr/schemas">
 	<Holiday>
 		<StartDate>2015-12-31</StartDate>
 		<EndDate>2016-01-01</EndDate>

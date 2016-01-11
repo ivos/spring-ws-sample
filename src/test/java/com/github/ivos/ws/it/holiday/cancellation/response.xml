@@ -1,4 +1,4 @@
-<HolidayResponse xmlns="http://mycompany.com/hr/schemas">
+<HolidayResponse xmlns="http://ivos.github.com/hr/schemas">
 	<HolidayId>12345</HolidayId>
 	<ConfirmationToken>Cancellation_Smith_2015-12-31_2016-01-01</ConfirmationToken>
 </HolidayResponse>

@@ -1,8 +1,8 @@
 package com.github.ivos.ws.holiday;
 
-import com.mycompany.hr.schemas.HolidayCancellationRequest;
-import com.mycompany.hr.schemas.HolidayRequest;
-import com.mycompany.hr.schemas.HolidayResponse;
+import com.github.ivos.hr.schemas.HolidayCancellationRequest;
+import com.github.ivos.hr.schemas.HolidayRequest;
+import com.github.ivos.hr.schemas.HolidayResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -18,7 +18,7 @@ public class HolidayEndpoint {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	@PayloadRoot(namespace = "http://mycompany.com/hr/schemas", localPart = "HolidayRequest")
+	@PayloadRoot(namespace = "http://ivos.github.com/hr/schemas", localPart = "HolidayRequest")
 	@ResponsePayload
 	public HolidayResponse requestHoliday(@RequestPayload HolidayRequest request) {
 		HolidayResponse response = buildHolidayResponse(
@@ -30,7 +30,7 @@ public class HolidayEndpoint {
 		return response;
 	}
 
-	@PayloadRoot(namespace = "http://mycompany.com/hr/schemas", localPart = "HolidayCancellationRequest")
+	@PayloadRoot(namespace = "http://ivos.github.com/hr/schemas", localPart = "HolidayCancellationRequest")
 	@ResponsePayload
 	public HolidayResponse cancelHoliday(@RequestPayload HolidayCancellationRequest request) {
 		HolidayResponse response = buildHolidayResponse(

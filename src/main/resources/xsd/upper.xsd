@@ -1,0 +1,17 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+           targetNamespace="http://ivos.github.com/upper/schemas">
+	<xs:element name="UpperRequest">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Text" type="xs:string"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpperResponse">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Text" type="xs:string"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

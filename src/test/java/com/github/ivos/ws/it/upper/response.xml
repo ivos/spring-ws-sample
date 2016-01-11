@@ -1,0 +1,3 @@
+<UpperResponse xmlns="http://ivos.github.com/upper/schemas">
+	<Text>SOME TEXT.</Text>
+</UpperResponse>
