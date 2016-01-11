@@ -20,7 +20,7 @@ public class WsTestBase {
 	public void perform(String request, String response) {
 		StringSource source = new StringSource(FileUtils.load(this, request));
 		StringResult result = new StringResult();
-		template.sendSourceAndReceiveToResult("http://localhost:8080/spring-ws-sample/ws/", source, result);
+		template.sendSourceAndReceiveToResult("http://localhost:8080/spring-ws-sample/ws", source, result);
 		String responseContent = result.toString();
 		Assert.assertEquals(XmlUtils.normalize(FileUtils.load(this, response)), XmlUtils.normalize(responseContent));
 	}
