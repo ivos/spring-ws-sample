@@ -1,0 +1,4 @@
+<HolidayResponse xmlns="http://mycompany.com/hr/schemas">
+	<HolidayId>12345</HolidayId>
+	<ConfirmationToken>Smith_2015-12-31_2016-01-01</ConfirmationToken>
+</HolidayResponse>

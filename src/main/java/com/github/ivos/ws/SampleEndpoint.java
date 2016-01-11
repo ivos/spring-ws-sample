@@ -1,7 +1,7 @@
 package com.github.ivos.ws;
 
-import java.math.BigInteger;
-
+import com.mycompany.hr.schemas.HolidayRequest;
+import com.mycompany.hr.schemas.HolidayResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -9,8 +9,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import com.mycompany.hr.schemas.HolidayRequest;
-import com.mycompany.hr.schemas.HolidayResponse;
+import java.math.BigInteger;
 
 @Endpoint
 public class SampleEndpoint {

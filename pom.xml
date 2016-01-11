@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.ivos</groupId>
 	<artifactId>spring-ws-sample</artifactId>
@@ -55,26 +55,61 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+		<defaultGoal>clean process-classes tomcat7:run</defaultGoal>
+
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
+
 		<pluginManagement>
 			<plugins>
+
 				<plugin>
 					<!-- Run in embedded tomcat by executing: -->
 					<!-- mvn clean process-test-classes tomcat7:run -->
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
+					<configuration>
+
+					</configuration>
 				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jaxb2-maven-plugin</artifactId>
+					<version>1.5</version>
+				</plugin>
+
 			</plugins>
 		</pluginManagement>
+
 		<plugins>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxb2-maven-plugin</artifactId>
-				<version>1.5</version>
 				<executions>
 					<execution>
 						<id>generate-beans-from-wsdl</id>
@@ -89,6 +124,60 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>it</id>
+			<build>
+				<defaultGoal>clean install</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId>
+						<artifactId>tomcat7-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>start-tomcat</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>run-war-only</goal>
+								</goals>
+								<configuration>
+									<fork>true</fork>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-tomcat</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>shutdown</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>integration-test</id>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<includes>
+										<include>**/*IT.java</include>
+									</includes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>
